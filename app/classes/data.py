@@ -7,7 +7,7 @@
 from app import app
 from flask import flash
 from flask_login import UserMixin
-from mongoengine import FileField, EmailField, StringField, ReferenceField, DateTimeField, CASCADE
+from mongoengine import FileField, EmailField, StringField, ReferenceField, DateTimeField, CASCADE, IntField
 from flask_mongoengine import Document
 from werkzeug.security import generate_password_hash, check_password_hash
 import datetime as dt
@@ -50,6 +50,7 @@ class Post(Document):
     content = StringField()
     createdate = DateTimeField(default=dt.datetime.utcnow)
     modifydate = DateTimeField()
+    rating = IntField()
 
     meta = {
         'ordering': ['-createdate']
