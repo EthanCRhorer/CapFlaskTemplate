@@ -69,3 +69,15 @@ class PostForm(FlaskForm):
 class CommentForm(FlaskForm):
     content = TextAreaField('Comment', validators=[DataRequired()])
     submit = SubmitField('Comment')
+    
+
+class CampaignForm(FlaskForm):
+    officelevel = StringField('Level of Office (State/Federal/Local', validators=[DataRequired()])
+    officelocation = StringField('Location of Office', validators=[DataRequired()])
+    office = StringField('Specific Office', validators=[DataRequired()])
+    desiredbudget = IntegerField('Desired Campaign Budget', validators=[DataRequired()])
+    incumbentbudget = IntegerField('Campaign Budget of Incumbent', validators=[DataRequired()])
+    incumbentparty = StringField('Incumbent Party Affiliation', validators=[DataRequired()])
+    incumbentideology = StringField('Incumbent Ideology', validators=[DataRequired()])
+    campaigndesc = StringField('Campaign Description', validators=[DataRequired()])
+    submit = SubmitField('Submit')

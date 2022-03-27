@@ -68,3 +68,20 @@ class Comment(Document):
     meta = {
         'ordering': ['-createdate']
     }
+
+class Campaign(Document):
+    author = ReferenceField('User',reverse_delete_rule=CASCADE)  
+    officelevel = StringField()
+    officelocation = StringField()
+    office = StringField()
+    desiredbudget = IntField()
+    incumbentbudget = IntField()
+    incumbentparty = StringField()
+    incumbentideology = StringField()
+    campaigndesc = StringField()
+    createdate = DateTimeField(default=dt.datetime.utcnow)
+    modifydate = DateTimeField()
+
+    meta = {
+        'ordering': ['-createdate']
+    }
