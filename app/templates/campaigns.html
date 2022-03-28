@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<div class="row">
+    <div class="col-4">
+        <h1 class="display-1">All Posts</h1>
+    </div>
+    <div class="col">
+        <a href="/bookreview/new" class="btn btn-primary btn-sm mt-5" role="button">New Book Review</a>
+    </div>
+</div>
+
+{% if bookreviews %}
+    {% for bookreview in bookreviews %}
+        <div class="row border-bottom">
+            <div class="col-2">
+                {% if loop.index == 1 %}
+                <h3 class="display-7">Date</h3>
+                {% endif %}
+                <a href="/bookreview/delete/{{bookreview.id}}">Delete</a> - 
+                <a href="/bookreview/{{bookreview.id}}">
+                    {{moment(bookreview.createdate).calendar()}}
+                </a>
+            </div>
+            <div class="col-2">
+                {% if loop.index == 1 %}
+                <h3 class="display-7">User</h3>
+                {% endif %}
+                {{bookreview.author.username}}
+            </div>
+            <div class="col">
+                {% if loop.index == 1 %}
+                    <h3 class="display-7">Book Title</h3>
+                {% endif %}
+                {{bookreview.booktitle}}
+            </div>
+            <div class="col">
+                {% if loop.index == 1 %}
+                    <h3 class="display-7">Author</h3>
+                {% endif %}
+                {{bookreview.authorname}}
+            </div>
+            <div class="col">
+                {% if loop.index == 1 %}
+                    <h3 class="display-7">Rating</h3>
+                {% endif %}
+                 <p>{{bookreview.rating}}/5</p>
+            </div>
+            <div class="col">
+                {% if loop.index == 1 %}
+                    <h3 class="display-7">Thoughts?</h3>
+                {% endif %}
+                {{bookreview.userthoughts}}
+            </div>
+            <div class="col">
+                {% if loop.index == 1 %}
+                    <h3 class="display-7">Spoilers?</h3>
+                {% endif %}
+                {{bookreview.spoilers}}
+            </div>
+        </div>
+    {% endfor %}
+{% else %}
+    <h1>No Posts</h1>
+{% endif %}
+
+{% endblock %}
+

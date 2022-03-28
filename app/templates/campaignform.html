@@ -1,0 +1,62 @@
+<!-- this is a generic form page.  Best way to make a new form page is to 
+copy this one and then edit it. -->
+
+{% extends "base.html" %}
+
+{% block body %}
+        <h1>Book Review Post</h1>
+
+        <!--List all errors in a group at the top-->
+        {% for field in form.errors %}
+            {% for error in form.errors[field] %}
+                <div class="alert alert-error">
+                    <strong>Error!</strong>{{field}}: {{error}}
+                </div>
+            {% endfor %}
+        {% endfor %}
+
+        <form method=post>
+            {{ form.hidden_tag() }}
+            
+
+            <p>
+                {{ form.booktitle.label }}<br>
+                {{ form.booktitle() }}<br>
+                {% for error in form.booktitle.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.authorname.label }}<br>
+                {{ form.authorname() }}<br>
+                {% for error in form.authorname.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.rating.label }}<br>
+                {{ form.rating() }}<br>
+                {% for error in form.rating.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.userthoughts.label }}<br>
+                {{ form.userthoughts() }}<br>
+                {% for error in form.userthoughts.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.spoilers.label }}<br>
+                {{ form.spoilers() }}<br>
+                {% for error in form.spoilers.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+    
+
+            {{form.submit()}}
+        </form>
+        
+{% endblock %}
