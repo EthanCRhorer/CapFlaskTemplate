@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 
 {% block body %}
-<h3><a class="nav-link" href="/bookreview/list">Click here to view everyones response</a>
+<h3><a class="nav-link" href="/campaign/list">Click here to view everyones response</a>
 </h3>
 <h1 class="display-1">
     My Profile
-    <a href="/bookreview/edit/{{bookreview.id}}">
+    <a href="/campaign/edit/{{campaign.id}}">
         <img width="40" src="/static/edit.png">
     </a>
 </h1>
@@ -23,13 +23,15 @@
             Real Name: {{current_user.fname}}  {{current_user.lname}} <br>
         {% endif %}
         
-        Username: {{bookreview.author.username}} <br>
-        booktitle: {{bookreview.booktitle}} <br>
-        authorname: {{bookreview.authorname}} <br>     
-        rating: {{bookreview.rating}} <br>
-        userthoughts: {{bookreview.userthoughts}} <br>
-        spoilers: {{bookreview.spoilers}} <br>
-
+        Username: {{campaign.author.username}} <br>
+        officelevel: {{campaign.officelevel}} <br>
+        officelocation: {{campaign.officelocation}} <br>
+        office: {{campaign.office}} <br>
+        desiredbudget: {{campaign.desiredbudget}} <br>
+        incumbentbudget: {{campaign.incumbentbudget}} <br>
+        incumbentparty: {{campaign.incumbentparty}} <br>
+        incumbentideology: {{campaign.incumbentideology}} <br>
+        campaigndesc: {{campaign.campaigndesc}} <br>
 
     </div>
     

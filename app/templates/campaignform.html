@@ -4,7 +4,7 @@ copy this one and then edit it. -->
 {% extends "base.html" %}
 
 {% block body %}
-        <h1>Book Review Post</h1>
+        <h1>Campaign Review Post</h1>
 
         <!--List all errors in a group at the top-->
         {% for field in form.errors %}
@@ -18,39 +18,59 @@ copy this one and then edit it. -->
         <form method=post>
             {{ form.hidden_tag() }}
             
-
             <p>
-                {{ form.booktitle.label }}<br>
-                {{ form.booktitle() }}<br>
-                {% for error in form.booktitle.errors %}
+                {{ form.officelevel.label }}<br>
+                {{ form.officelevel() }}<br>
+                {% for error in form.officelevel.errors %}
                 <span style="color: red;">[{{ error }}]</span>
                 {% endfor %}
             </p>
             <p>
-                {{ form.authorname.label }}<br>
-                {{ form.authorname() }}<br>
-                {% for error in form.authorname.errors %}
+                {{ form.officelocation.label }}<br>
+                {{ form.officelocation() }}<br>
+                {% for error in form.officelocation.errors %}
                 <span style="color: red;">[{{ error }}]</span>
                 {% endfor %}
             </p>
             <p>
-                {{ form.rating.label }}<br>
-                {{ form.rating() }}<br>
-                {% for error in form.rating.errors %}
+                {{ form.office.label }}<br>
+                {{ form.office() }}<br>
+                {% for error in form.office.errors %}
                 <span style="color: red;">[{{ error }}]</span>
                 {% endfor %}
             </p>
             <p>
-                {{ form.userthoughts.label }}<br>
-                {{ form.userthoughts() }}<br>
-                {% for error in form.userthoughts.errors %}
+                {{ form.desiredbudget.label }}<br>
+                {{ form.desiredbudget() }}<br>
+                {% for error in form.desiredbudget.errors %}
                 <span style="color: red;">[{{ error }}]</span>
                 {% endfor %}
             </p>
             <p>
-                {{ form.spoilers.label }}<br>
-                {{ form.spoilers() }}<br>
-                {% for error in form.spoilers.errors %}
+                {{ form.incumbentbudget.label }}<br>
+                {{ form.incumbentbudget() }}<br>
+                {% for error in form.incumbentbudget.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.incumbentparty.label }}<br>
+                {{ form.incumbentparty() }}<br>
+                {% for error in form.incumbentparty.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.incumbentideology.label }}<br>
+                {{ form.incumbentideology() }}<br>
+                {% for error in form.incumbentideology.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.campaigndesc.label }}<br>
+                {{ form.campaigndesc() }}<br>
+                {% for error in form.campaigndesc.errors %}
                 <span style="color: red;">[{{ error }}]</span>
                 {% endfor %}
             </p>
