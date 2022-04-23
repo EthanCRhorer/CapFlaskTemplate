@@ -4,7 +4,7 @@ copy this one and then edit it. -->
 {% extends "base.html" %}
 
 {% block body %}
-        <h1>Campaign Review Post</h1>
+        <h1>Campaign Post</h1>
 
         <!--List all errors in a group at the top-->
         {% for field in form.errors %}
@@ -18,6 +18,20 @@ copy this one and then edit it. -->
         <form method=post>
             {{ form.hidden_tag() }}
             
+            <p>
+                {{ form.candidatename.label }}<br>
+                {{ form.candidatename() }}<br>
+                {% for error in form.candidatename.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.incumbentname.label }}<br>
+                {{ form.incumbentname() }}<br>
+                {% for error in form.incumbentname.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
             <p>
                 {{ form.officelevel.label }}<br>
                 {{ form.officelevel() }}<br>
@@ -57,20 +71,6 @@ copy this one and then edit it. -->
                 {{ form.incumbentparty.label }}<br>
                 {{ form.incumbentparty() }}<br>
                 {% for error in form.incumbentparty.errors %}
-                <span style="color: red;">[{{ error }}]</span>
-                {% endfor %}
-            </p>
-            <p>
-                {{ form.incumbentideology.label }}<br>
-                {{ form.incumbentideology() }}<br>
-                {% for error in form.incumbentideology.errors %}
-                <span style="color: red;">[{{ error }}]</span>
-                {% endfor %}
-            </p>
-            <p>
-                {{ form.campaigndesc.label }}<br>
-                {{ form.campaigndesc() }}<br>
-                {% for error in form.campaigndesc.errors %}
                 <span style="color: red;">[{{ error }}]</span>
                 {% endfor %}
             </p>

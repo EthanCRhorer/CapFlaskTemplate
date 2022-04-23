@@ -81,14 +81,15 @@ def CampaignNew():
             # the left side is the name of the field from the data table
             # the right side is the data the user entered which is held in the form object.
             author = current_user.id,
+            candidatename = form.candidatename.data,
+            incumbentname = form.incumbentname.data,
             officelevel = form.officelevel.data,
             officelocation = form.officelocation.data,
             office = form.office.data,
             desiredbudget = form.desiredbudget.data,
             incumbentbudget = form.incumbentbudget.data,
             incumbentparty = form.incumbentparty.data,
-            incumbentideology = form.incumbentideology.data,
-            campaigndesc = form.campaigndesc.data,
+
    
             # This sets the modifydate to the current datetime.
             modifydate = dt.datetime.utcnow
@@ -132,14 +133,14 @@ def CampaignEdit(CampaignID):
     if form.validate_on_submit():
         # update() is mongoengine method for updating an existing document with new data.
         editCampaign.update(
+            candidatename = form.candidatename.data,
+            incumbentname = form.incumbentname.data,
             officelevel = form.officelevel.data,
             officelocation = form.officelocation.data,
             office = form.office.data,
             desiredbudget = form.desiredbudget.data,
             incumbentbudget = form.incumbentbudget.data,
             incumbentparty = form.incumbentparty.data,
-            incumbentideology = form.incumbentideology.data,
-            campaigndesc = form.campaigndesc.data,
             modifydate = dt.datetime.utcnow
             
         )
@@ -148,14 +149,15 @@ def CampaignEdit(CampaignID):
  
     # if the form has NOT been submitted then take the data from the editPost object
     # and place it in the form object so it will be displayed to the user on the template.
+    
+    form.candidatename.data = editCampaign.candidatename
+    form.incumbentname.data = editCampaign.incumbentname
     form.officelevel.data = editCampaign.officelevel
     form.officelocation.data = editCampaign.officelocation
     form.office.data = editCampaign.office
     form.desiredbudget.data = editCampaign.desiredbudget
     form.incumbentbudget.data = editCampaign.incumbentbudget
     form.incumbentparty.data = editCampaign.incumbentparty
-    form.incumbentideology.data = editCampaign.incumbentideology
-    form.campaigndesc.data = editCampaign.campaigndesc
  
     # Send the user to the post form that is now filled out with the current information
     # from the form.

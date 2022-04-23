@@ -71,14 +71,14 @@ class Comment(Document):
 
 class Campaign(Document):
     author = ReferenceField('User',reverse_delete_rule=CASCADE)  
+    candidatename = StringField()
+    incumbentname = StringField()
     officelevel = StringField()
     officelocation = StringField()
     office = StringField()
     desiredbudget = IntField()
     incumbentbudget = IntField()
     incumbentparty = StringField()
-    incumbentideology = StringField()
-    campaigndesc = StringField()
     createdate = DateTimeField(default=dt.datetime.utcnow)
     modifydate = DateTimeField()
 

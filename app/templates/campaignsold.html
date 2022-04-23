@@ -12,53 +12,6 @@
 </div>
 
 {% if campaigns %}
-<table class="table">
-    <tr>
-        <th>Date</th>
-        <th>Candidate Name</th>
-        <th>Opponent Name</th>
-        <th>Office Level</th>
-        <th>Office Location</th>
-        <th>Specific Office</th>
-        <th>Desired Campaign Budget</th>
-        <th>Incumbent Budget</th>
-        <th>Incumbent Party</th>
-    </tr>
-    {% for campaign in campaigns %}
-    <tr>
-        <td>
-            <a href="/campaign/delete/{{campaign.id}}">|Delete|</a>
-            <a href="/campaign/{{campaign.id}}">|Edit|</a>
-        </td>
-        <td>
-            {{campaign.candidatename}}
-        </td>
-        <td>
-            {{campaign.incumbentname}}
-        </td>
-        <td>
-            {{campaign.officelevel}}
-        </td>
-        <td>
-            {{campaign.officelocation}}
-        </td>
-        <td>
-            {{campaign.office}}
-        </td>
-        <td>
-            {{campaign.desiredbudget}}
-        </td>
-        <td>
-            {{campaign.incumbentbudget}}
-        </td>
-        <td>
-            {{campaign.incumbentparty}}
-        </td>
-    </tr>
-    {% endfor %}
-</table>
-<!-- {% endif %}
-{% if campaigns %}
     {% for campaign in campaigns %}
         <div class="row border-bottom">
             <div class="col-1">
@@ -75,6 +28,12 @@
                 <h3 class="display-10">User</h3>
                 {% endif %}
                 {{campaign.author.username}}
+            </div>
+            <div class="col">
+                {% if loop.index == 1 %}
+                    <h3 class="display-10">Candidate Name</h3>
+                {% endif %}
+                {{campaign.officelevel}}
             </div>
             <div class="col">
                 {% if loop.index == 1 %}
@@ -112,15 +71,8 @@
                 {% endif %}
                 {{campaign.incumbentparty}}
             </div>
-            <div class="col-12">
-                {% if loop.index == 1 %}
-                    <h3 class="display-10">Campaign Description</h3>
-                {% endif %}
-                {{campaign.campaigndesc}}
-            </div>
         </div>
     {% endfor %}
--->
 {% else %}
     <h1>No Campaigns</h1>
 {% endif %}

@@ -72,12 +72,12 @@ class CommentForm(FlaskForm):
     
 
 class CampaignForm(FlaskForm):
-    officelevel = StringField('Level of Office (State/Federal/Local', validators=[DataRequired()])
+    candidatename = StringField('Name of Candidate', validators=[DataRequired()])
+    incumbentname = StringField('Name of Incumbent/Opponent', validators=[DataRequired()])
+    officelevel = StringField('Level of Office (State/Federal/Local)', validators=[DataRequired()])
     officelocation = StringField('Location of Office', validators=[DataRequired()])
     office = StringField('Specific Office', validators=[DataRequired()])
     desiredbudget = IntegerField('Desired Campaign Budget', validators=[DataRequired()])
     incumbentbudget = IntegerField('Campaign Budget of Incumbent', validators=[DataRequired()])
     incumbentparty = StringField('Incumbent Party Affiliation', validators=[DataRequired()])
-    incumbentideology = StringField('Incumbent Ideology', validators=[DataRequired()])
-    campaigndesc = StringField('Campaign Description', validators=[DataRequired()])
     submit = SubmitField('Submit')
