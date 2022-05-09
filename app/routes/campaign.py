@@ -89,6 +89,7 @@ def CampaignNew():
             desiredbudget = form.desiredbudget.data,
             incumbentbudget = form.incumbentbudget.data,
             incumbentparty = form.incumbentparty.data,
+            campaignlink = form.campaignlink.data,
 
    
             # This sets the modifydate to the current datetime.
@@ -141,6 +142,7 @@ def CampaignEdit(CampaignID):
             desiredbudget = form.desiredbudget.data,
             incumbentbudget = form.incumbentbudget.data,
             incumbentparty = form.incumbentparty.data,
+            campaignlink = form.campaignlink.data,
             modifydate = dt.datetime.utcnow
             
         )
@@ -158,6 +160,7 @@ def CampaignEdit(CampaignID):
     form.desiredbudget.data = editCampaign.desiredbudget
     form.incumbentbudget.data = editCampaign.incumbentbudget
     form.incumbentparty.data = editCampaign.incumbentparty
+    form.campaignlink.data = editCampaign.campaignlink
  
     # Send the user to the post form that is now filled out with the current information
     # from the form.

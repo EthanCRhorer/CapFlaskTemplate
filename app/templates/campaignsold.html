@@ -71,6 +71,12 @@
                 {% endif %}
                 {{campaign.incumbentparty}}
             </div>
+            <div class="col">
+                {% if loop.index == 1 %}
+                    <h3 class="display-10">Campaign Link</h3>
+                {% endif %}
+                {{campaign.incumbentparty}}
+            </div>
         </div>
     {% endfor %}
 {% else %}

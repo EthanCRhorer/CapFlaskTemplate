@@ -79,6 +79,7 @@ class Campaign(Document):
     desiredbudget = IntField()
     incumbentbudget = IntField()
     incumbentparty = StringField()
+    campaignlink = StringField()
     createdate = DateTimeField(default=dt.datetime.utcnow)
     modifydate = DateTimeField()
 

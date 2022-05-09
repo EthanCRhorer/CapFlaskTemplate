@@ -74,6 +74,13 @@ copy this one and then edit it. -->
                 <span style="color: red;">[{{ error }}]</span>
                 {% endfor %}
             </p>
+            <p>
+                {{ form.campaignlink.label }}<br>
+                {{ form.campaignlink() }}<br>
+                {% for error in form.campaignlink.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
     
 
             {{form.submit()}}

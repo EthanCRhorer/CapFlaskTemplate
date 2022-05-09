@@ -80,4 +80,5 @@ class CampaignForm(FlaskForm):
     desiredbudget = IntegerField('Desired Campaign Budget', validators=[DataRequired()])
     incumbentbudget = IntegerField('Campaign Budget of Incumbent', validators=[DataRequired()])
     incumbentparty = StringField('Incumbent Party Affiliation', validators=[DataRequired()])
+    campaignlink = StringField('Link to Campaign Website', validators=[DataRequired()])
     submit = SubmitField('Submit')
